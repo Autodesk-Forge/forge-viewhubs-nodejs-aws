@@ -51,7 +51,7 @@ router.get('/oauth/url', async (req, res, next) => {
             '&redirect_uri=' + callback_url +
             '&scope=' + configAWS.scopeInternal.join(' ');
         res.end(url);
-    } catch {
+    } catch(err) {
         next(err);
     }
     
