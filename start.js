@@ -22,10 +22,10 @@ const cookieSession = require('cookie-session');
 
 const PORT = process.env.PORT || 3000;
 //const configAWS = require('./configAWS');
-if (process.env.FORGE_CLIENT_ID_PARAM == null || process.env.FORGE_CLIENT_SECRET_PARAM == null || process.env.FORGE_CALLBACK_URL_PARAM == null ) {
-    console.error('Missing FORGE_CLIENT_ID or FORGE_CLIENT_SECRET or FORGE_CALLBACK_URL env. variables.');
-    return;
-}
+// if (process.env.FORGE_CLIENT_ID_PARAM == null || process.env.FORGE_CLIENT_SECRET_PARAM == null || process.env.FORGE_CALLBACK_URL_PARAM == null ) {
+//     console.error('Missing FORGE_CLIENT_ID or FORGE_CLIENT_SECRET or FORGE_CALLBACK_URL env. variables.');
+//     return;
+// }
 
 let app = express();
 app.use(express.static(path.join(__dirname, 'public')));
