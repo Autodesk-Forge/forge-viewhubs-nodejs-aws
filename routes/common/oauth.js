@@ -18,7 +18,7 @@
 
 const { AuthClientThreeLegged } = require('forge-apis');
 
-const configAWS = require('../../configAWS');
+const config = require('../../config');
 
 let client_id = null;
 
@@ -31,9 +31,9 @@ class OAuth {
         this._session = session;
     }
 
-    async getClient(scopes = configAWS.scopeInternal) {
+    async getClient(scopes = config.scopeInternal) {
         if (!client_id || !client_secret || !callback_url){
-            let result = await Promise.all([configAWS.forgeAWSClientId(), configAWS.forgeAWSClientSecret(), configAWS.forgeAWSCallbackUrl()]);
+            let result = await Promise.all([config.forgeAWSClientId(), config.forgeAWSClientSecret(), config.forgeAWSCallbackUrl()]);
             client_id = result[0];
             client_secret = result[1];
             callback_url = result[2];
@@ -71,8 +71,8 @@ class OAuth {
     // get the internal and public tokens and store them 
     // on the session
     async setCode(code) {
-        const internalTokenClient = await this.getClient(configAWS.scopeInternal);
-        const publicTokenClient = await this.getClient(configAWS.scopePublic);
+        const internalTokenClient = await this.getClient(config.scopeInternal);
+        const publicTokenClient = await this.getClient(config.scopePublic);
         const internalCredentials = await internalTokenClient.getToken(code);
         const publicCredentials = await publicTokenClient.refreshToken(internalCredentials);
 
@@ -94,8 +94,8 @@ class OAuth {
     }
 
     async _refreshTokens() {
-        let internalTokenClient = await this.getClient(configAWS.scopeInternal);
-        let publicTokenClient = await this.getClient(configAWS.scopePublic);
+        let internalTokenClient = await this.getClient(config.scopeInternal);
+        let publicTokenClient = await this.getClient(config.scopePublic);
         const internalCredentials = await internalTokenClient.refreshToken({ refresh_token: this._session.refresh_token });
         const publicCredentials = await publicTokenClient.refreshToken(internalCredentials);
 

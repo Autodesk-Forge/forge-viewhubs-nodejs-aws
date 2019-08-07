@@ -18,7 +18,7 @@
 
 const express = require('express');
 
-const configAWS = require('../configAWS');
+const config = require('../config');
 const { OAuth } = require('./common/oauth');
 
 let router = express.Router();
@@ -40,7 +40,7 @@ router.get('/callback/oauth', async (req, res, next) => {
 
 router.get('/oauth/url', async (req, res, next) => {
     try {
-        let result = await Promise.all([configAWS.forgeAWSClientId(), configAWS.forgeAWSCallbackUrl()]);
+        let result = await Promise.all([config.forgeAWSClientId(), config.forgeAWSCallbackUrl()]);
         client_id = result[0];
         callback_url = result[1];
     
@@ -49,7 +49,7 @@ router.get('/oauth/url', async (req, res, next) => {
             '/authentication/v1/authorize?response_type=code' +
             '&client_id=' + client_id +
             '&redirect_uri=' + callback_url +
-            '&scope=' + configAWS.scopeInternal.join(' ');
+            '&scope=' + config.scopeInternal.join(' ');
         res.end(url);
     } catch(err) {
         next(err);
