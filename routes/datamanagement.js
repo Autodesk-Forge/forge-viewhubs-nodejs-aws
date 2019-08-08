@@ -16,8 +16,8 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
-const express = require('express');
-const { HubsApi, ProjectsApi, FoldersApi, ItemsApi } = require('forge-apis');
+const express = require('../node_modules/express');
+const { HubsApi, ProjectsApi, FoldersApi, ItemsApi } = require('../node_modules/forge-apis/src');
 
 const { OAuth } = require('./common/oauth');
 

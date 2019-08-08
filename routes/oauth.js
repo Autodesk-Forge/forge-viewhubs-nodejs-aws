@@ -16,7 +16,7 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
-const express = require('express');
+const express = require('../node_modules/express');
 
 const config = require('../config');
 const { OAuth } = require('./common/oauth');

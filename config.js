@@ -15,7 +15,7 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
-const awsParamStore = require( 'aws-param-store' );
+const awsParamStore = require( './node_modules/aws-param-store/lib' );
 
 const awsFlag = process.env.FORGE_AWS_FLAG;
 const paramStore = {"region": process.env.AWS_REGION}

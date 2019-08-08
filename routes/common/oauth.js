@@ -16,7 +16,7 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
-const { AuthClientThreeLegged } = require('forge-apis');
+const { AuthClientThreeLegged } = require('../../node_modules/forge-apis/src');
 
 const config = require('../../config');
 

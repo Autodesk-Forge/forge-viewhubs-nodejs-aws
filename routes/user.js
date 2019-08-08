@@ -16,8 +16,8 @@
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
 
-const express = require('express');
-const { UserProfileApi } = require('forge-apis');
+const express = require('../node_modules/express');
+const { UserProfileApi } = require('../node_modules/forge-apis/src');
 
 const { OAuth } = require('./common/oauth');
 
