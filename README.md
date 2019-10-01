@@ -13,11 +13,9 @@
 
 # Description
 
-AWS Cloudformation Project
+AWS Cloudformation Project for BIM 360 Integrations.
 
-## Thumbnail
-
-![](thumbnail.png)
+![](quickstart-bim360-integration-diagram.png)
 
 # Setup
 
