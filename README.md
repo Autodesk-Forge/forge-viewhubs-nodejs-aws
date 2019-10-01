@@ -15,6 +15,9 @@
 
 AWS Cloudformation Project
 
+## Thumbnail
+
+![](thumbnail.png)
 
 # Setup
 
